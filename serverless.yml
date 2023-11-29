@@ -1,0 +1,18 @@
+org: obinna
+app: neon-lambda
+service: neon-lambda
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    DATABASE_URL: <Database_url>
+
+functions:
+  getAllStudents:
+    handler: index.getAllStudents
+    events:
+      - httpApi:
+          path: /students
+          method: get
